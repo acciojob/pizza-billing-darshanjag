@@ -6,9 +6,17 @@ public class Pizza {
     private Boolean isVeg;
     private String bill;
 
+
+
     public Pizza(Boolean isVeg){
+
         this.isVeg = isVeg;
-        // your code goes here
+        if(isVeg){
+            this.price=300;
+        }else{
+            this.price=400;
+        }
+        this.bill="Base Price Of The Pizza: "+price+ "\n";
     }
 
     public int getPrice(){
@@ -16,19 +24,31 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        // your code goes here
+        this.price+=80;
+        this.bill+="Extra Cheese Added: 80 \n";
     }
 
     public void addExtraToppings(){
+        int toppingPrice=0;
         // your code goes here
+        if(this.isVeg){
+            toppingPrice =70;
+        }else{
+            toppingPrice=120;
+        }
+        this.price+=toppingPrice;
+        this.bill+="Extra Toppings Added: "+toppingPrice+ "\n";
+
     }
 
     public void addTakeaway(){
         // your code goes here
+        this.price+=20;
+        this.bill+="Paperbag Added: 20 \n";
     }
 
     public String getBill(){
-        // your code goes here
+        this.bill+="Total Price: "+this.price;
         return this.bill;
     }
 }
